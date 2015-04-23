@@ -53,21 +53,14 @@ $('#signup').submit(function (e) {
 
 $('#login').submit(function (e) {
     e.preventDefault();
-    function loginCallback (err, profile, idToken) {
-        if (err) {
-            console.error('Something went wrong when logging in: ' + err);
-        } else {
-            window.location.href = 'http://jwt.io?value=' + idToken;
-        }
-    }
-
     auth0.login({
         sso: false,
         connection: AUTH0_DB_CONNECTION_NAME,
         scope: 'openid email user_metadata',
         email: $('#login-email').val(),
-        password: $('#login-password').val()
-    }, loginCallback);
+        password: $('#login-password').val(),
+        callbackURL: 'http://jwt.io'
+    });
 });
 
 // TODO Add this as a method in auth0.js
