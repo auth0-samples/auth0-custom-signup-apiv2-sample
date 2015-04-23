@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title>Auth0 Custom Signup APIv2 Sample</title>
+  <link rel="icon"
+        type="image/png"
+        href="//cdn.auth0.com/styleguide/latest/img/favicon.png">
+  <link href="https://cdn.auth0.com/styleguide/latest/index.css" rel="stylesheet" />
+  <style>
+    form {
+      padding: 20px
+    }
+  </style>
+</head>
+<body>
+<form id="signup">
+  <fieldset>
+    <legend>Sign up</legend>
+    <p>
+      <input type="email" name="email" id="signup-email" required/>
+      <label for="signup-email">Email</label>
+    </p>
+    <p>
+      <input type="password" name="password" id="signup-password" required/>
+      <label for="signup-password">Password</label>
+    </p>
+    <p>
+      <input type="text" name="name" id="name" required/>
+      <label for="name">Name</label>
+    </p>
+    <p>
+      <input type="text" name="name" id="color"/>
+      <label for="name">Favorite color (optional)</label>
+    </p>
+    <input type="submit" value="Sign up"/>
+  </fieldset>
+</form>
+
+<form id="login">
+  <fieldset>
+    <legend>Log in</legend>
+    <p>
+      <input type="email" name="email" id="login-email" required/>
+      <label for="login-email">Email</label>
+    </p>
+    <p>
+      <input type="password" name="password" id="login-password" required/>
+      <label for="login-password">Password</label>
+    </p>
+    <input type="submit" value="Log in and inspect token"/>
+  </fieldset>
+</form>
+
+<script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="//cdn.auth0.com/w2/auth0-6.js"></script>
+<script src="auth0-variables.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
