@@ -2,7 +2,7 @@
 
 This example shows how to sign up users and include custom fields in the same process, i.e. fields other than email and password.
 
-To see this example live, browse to https://github.com/auth0/auth0-custom-signup-apiv2-sample.
+To see this example live, browse to https://auth0.github.io/auth0-custom-signup-apiv2-sample/.
 
 ## Running the example
 
