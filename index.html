@@ -18,19 +18,17 @@
   <fieldset>
     <legend>Sign up</legend>
     <p>
-      <input type="email" name="email" id="signup-email" placeholder="Email"
+      <input type="email" id="signup-email" placeholder="Email" required/>
+    </p>
+    <p>
+      <input type="password" id="signup-password" placeholder="Password"
              required/>
     </p>
     <p>
-      <input type="password" name="password" id="signup-password"
-             placeholder="Password" required/>
+      <input type="text" id="name" placeholder="Full name" required/>
     </p>
     <p>
-      <input type="text" name="name" id="name" placeholder="Full name"
-             required/>
-    </p>
-    <p>
-      <input type="text" name="name" id="color" placeholder="Favorite color"/>
+      <input type="text" id="color" placeholder="Favorite color"/>
     </p>
     <input type="submit" value="Sign up"/>
   </fieldset>
@@ -40,12 +38,11 @@
   <fieldset>
     <legend>Log in</legend>
     <p>
-      <input type="email" name="email" id="login-email" placeholder="Email"
-             required/>
+      <input type="email" id="login-email" placeholder="Email" required/>
     </p>
     <p>
-      <input type="password" name="password" id="login-password"
-             placeholder="Password" required/>
+      <input type="password" id="login-password" placeholder="Password"
+             required/>
     </p>
     <input type="submit" value="Log in and inspect token"/>
   </fieldset>
