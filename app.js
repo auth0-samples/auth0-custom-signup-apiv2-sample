@@ -15,30 +15,47 @@ copy('#signup-password', '#login-password');
 
 $('#signup').submit(function (e) {
     e.preventDefault();
-    var data = {
-        name: $('#name').val(),
-        email: $('#signup-email').val(),
-        password: $('#signup-password').val(),
-        user_metadata: {
-            favorite_color: $('#color').val()
-        },
-        connection: AUTH0_DB_CONNECTION_NAME
-    };
-    function successCallback () {
-        alert('Successfully signed up!');
-    }
-    function errorCallback (jqXHR) {
-        alert('Something went wrong: ' + jqXHR.responseJSON.message);
+    function signupCallback (err, profile, id_token) {
+        if (err) {
+            alert('Something went wrong signing up: ' + err);
+            console.error(err);
+        } else {
+            var data = {
+                user_metadata: {
+                    favorite_color: $('#color').val(),
+                    name: $('#name').val()
+                }
+            };
+
+            function updateSuccess () {
+                alert('Successfully signed up!');
+            }
+
+            function updateError (jqXHR) {
+                alert('Something went wrong signing up: ' + jqXHR.responseText);
+                console.error(jqXHR);
+            }
+
+            v2PatchUser(profile.user_id, id_token, data, updateSuccess, updateError);
+        }
     }
 
-    v2SignUp(data, successCallback, errorCallback);
+    auth0.signup({
+        // Don't display a popup to set an SSO cookie
+        sso: false,
+        auto_login: true,
+        email: $('#signup-email').val(),
+        password: $('#signup-password').val(),
+        connection: AUTH0_DB_CONNECTION_NAME
+    }, signupCallback);
+
 });
 
 $('#login').submit(function (e) {
     e.preventDefault();
     function loginCallback (err, profile, idToken) {
         if (err) {
-            console.err('Something went wrong when logging in: ' + err);
+            console.error('Something went wrong when logging in: ' + err);
         } else {
             window.location.href = 'http://jwt.io?value=' + idToken;
         }
@@ -49,20 +66,20 @@ $('#login').submit(function (e) {
         password: $('#login-password').val(),
         sso: false,
         connection: AUTH0_DB_CONNECTION_NAME,
-        scope: 'openid profile'
+        scope: 'openid email user_metadata'
     }, loginCallback);
 });
 
 // TODO Add this as a method in auth0.js
-function v2SignUp (data, successCallback, errorCallback) {
+function v2PatchUser (userId, id_token, data, successCallback, errorCallback) {
     $.ajax({
-        method: 'post',
-        url: apiEndpoint + 'users',
+        method: 'patch',
+        url: apiEndpoint + 'users/' + userId,
+        dataType: 'json',
         headers: {
-            'Authorization': 'Bearer ' + AUTH0_APIV2_TOKEN
+            'Authorization': 'Bearer ' + id_token
         },
         data: data,
-        dataType: 'json',
         success: successCallback,
         error: errorCallback
     });
