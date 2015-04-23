@@ -44,9 +44,9 @@ $('#signup').submit(function (e) {
         // Don't display a popup to set an SSO cookie
         sso: false,
         auto_login: true,
+        connection: AUTH0_DB_CONNECTION_NAME,
         email: $('#signup-email').val(),
-        password: $('#signup-password').val(),
-        connection: AUTH0_DB_CONNECTION_NAME
+        password: $('#signup-password').val()
     }, signupCallback);
 
 });
@@ -62,11 +62,11 @@ $('#login').submit(function (e) {
     }
 
     auth0.login({
-        email: $('#login-email').val(),
-        password: $('#login-password').val(),
         sso: false,
         connection: AUTH0_DB_CONNECTION_NAME,
-        scope: 'openid email user_metadata'
+        scope: 'openid email user_metadata',
+        email: $('#login-email').val(),
+        password: $('#login-password').val()
     }, loginCallback);
 });
 
