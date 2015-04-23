@@ -3,10 +3,10 @@
 <head lang="en">
   <meta charset="UTF-8">
   <title>Auth0 Custom Signup APIv2 Sample</title>
-  <link rel="icon"
-        type="image/png"
+  <link rel="icon" type="image/png"
         href="//cdn.auth0.com/styleguide/latest/img/favicon.png">
-  <link href="https://cdn.auth0.com/styleguide/latest/index.css" rel="stylesheet" />
+  <link href="https://cdn.auth0.com/styleguide/latest/index.css"
+        rel="stylesheet"/>
   <style>
     form {
       padding: 20px;
@@ -18,20 +18,19 @@
   <fieldset>
     <legend>Sign up</legend>
     <p>
-      <input type="email" name="email" id="signup-email" required/>
-      <label for="signup-email">Email</label>
+      <input type="email" name="email" id="signup-email" placeholder="Email"
+             required/>
     </p>
     <p>
-      <input type="password" name="password" id="signup-password" required/>
-      <label for="signup-password">Password</label>
+      <input type="password" name="password" id="signup-password"
+             placeholder="Password" required/>
     </p>
     <p>
-      <input type="text" name="name" id="name" required/>
-      <label for="name">Name</label>
+      <input type="text" name="name" id="name" placeholder="Full name"
+             required/>
     </p>
     <p>
-      <input type="text" name="name" id="color"/>
-      <label for="color">Favorite color (optional)</label>
+      <input type="text" name="name" id="color" placeholder="Favorite color"/>
     </p>
     <input type="submit" value="Sign up"/>
   </fieldset>
@@ -41,12 +40,12 @@
   <fieldset>
     <legend>Log in</legend>
     <p>
-      <input type="email" name="email" id="login-email" required/>
-      <label for="login-email">Email</label>
+      <input type="email" name="email" id="login-email" placeholder="Email"
+             required/>
     </p>
     <p>
-      <input type="password" name="password" id="login-password" required/>
-      <label for="login-password">Password</label>
+      <input type="password" name="password" id="login-password"
+             placeholder="Password" required/>
     </p>
     <input type="submit" value="Log in and inspect token"/>
   </fieldset>
