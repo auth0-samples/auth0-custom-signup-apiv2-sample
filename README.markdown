@@ -8,7 +8,5 @@ To see this example live, browse to https://auth0.github.io/auth0-custom-signup-
 
 All that is needed to run this example is a web server. Here's an easy way to do just that:
 
-1. Install `node`
-2. Run `npm install -g serve`
-3. Run `serve` in project directory
-4. Browse to [`http://localhost:3000`](http://localhost:3000)
+1. Run `python -m SimpleHTTPServer` in project directory
+2. Browse to [`http://localhost:8000`](http://localhost:8000)
