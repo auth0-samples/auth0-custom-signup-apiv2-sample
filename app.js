@@ -59,7 +59,8 @@ $('#login').submit(function (e) {
         scope: 'openid email user_metadata',
         email: $('#login-email').val(),
         password: $('#login-password').val(),
-        callbackURL: 'http://jwt.io'
+        callbackURL: 'http://jwt.io',
+        callbackOnLocationHash: true
     });
 });
 
